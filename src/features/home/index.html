@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Robotics Education Academy - Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+
+                      "primary-blue": "#0C469B",
+                      "accent-green": "#00A651",
+                      "accent-yellow": "#F9BF15",
+                      "accent-red": "#ED1C24",
+                      "bg-light": "#F8FAFD",
+                      "text-dark": "#1E293B",
+
+                      "surface-tint": "#007BFF",
+                      "surface-bright": "#FFFFFF",
+                      "on-tertiary": "#FFFFFF",
+                      "on-primary-fixed": "#002B70",
+                      "outline": "#9CA3AF",
+                      "secondary-fixed": "#FFCC00",
+                      "secondary": "#FFB800",
+                      "tertiary": "#4CAF50",
+                      "outline-variant": "#D1D5DB",
+                      "on-surface": "#111827",
+                      "on-tertiary-fixed": "#004004",
+                      "on-surface-variant": "#4B5563",
+                      "primary-container": "#D6E4FF",
+                      "on-secondary-fixed-variant": "#7A6200",
+                      "on-secondary-fixed": "#000000",
+                      "error": "#FF3B30",
+                      "on-secondary-container": "#7A6200",
+                      "primary-fixed-dim": "#A3C2FF",
+                      "on-background": "#111827",
+                      "on-primary-fixed-variant": "#0040A8",
+                      "surface-container-highest": "#E5E7EB",
+                      "primary": "#007BFF",
+                      "on-tertiary-container": "#004004",
+                      "pure-white": "#FFFFFF",
+                      "inverse-primary": "#A3C2FF",
+                      "tertiary-container": "#DDF5DF",
+                      "secondary-container": "#FFF4CC",
+                      "on-primary-container": "#002B70",
+                      "on-error-container": "#7A0000",
+                      "surface-container-low": "#F9FAFB",
+                      "on-error": "#FFFFFF",
+                      "surface-gray": "#F3F4F6",
+                      "surface-variant": "#F0F4F8",
+                      "surface-container": "#F3F4F6",
+                      "surface": "#FFFFFF",
+                      "on-primary": "#FFFFFF",
+                      "inverse-surface": "#1F2937",
+                      "on-secondary": "#000000",
+                      "inverse-on-surface": "#F9FAFB",
+                      "background": "#FFFFFF",
+                      "surface-dim": "#D1D5DB",
+                      "primary-fixed": "#D6E4FF",
+                      "error-container": "#FFD6D6",
+                      "secondary-fixed-dim": "#FFB800",
+                      "robotics-red": "#FF3B30",
+                      "surface-container-lowest": "#FFFFFF",
+                      "surface-container-high": "#E5E7EB",
+                      "tertiary-fixed-dim": "#4CAF50",
+                      "on-tertiary-fixed-variant": "#004004",
+                      "tertiary-fixed": "#DDF5DF"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "1.5rem",
+                      "xl": "2rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "12px",
+                      "margin-mobile": "24px",
+                      "animation-slide-down": "500ms cubic-bezier(0.16, 1, 0.3, 1)",
+                      "animation-fade-in": "400ms ease-out",
+                      "margin-desktop": "80px",
+                      "gutter": "32px",
+                      "section-gap": "96px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Fredoka", "sans-serif"],
+                      "button-text": ["Fredoka", "sans-serif"],
+                      "body-lg": ["Nunito", "sans-serif"],
+                      "body-md": ["Nunito", "sans-serif"],
+                      "body-sm": ["Nunito", "sans-serif"],
+                      "headline-xl": ["Fredoka", "sans-serif"],
+                      "headline-lg": ["Fredoka", "sans-serif"],
+                      "headline-md": ["Fredoka", "sans-serif"],
+                      "headline-sm": ["Fredoka", "sans-serif"],
+                      "headline-lg-mobile": ["Fredoka", "sans-serif"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+</head>
+<body class="bg-bg-light text-text-dark font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar Component -->
+<header class="bg-white border-b border-outline-variant full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-7xl mx-auto">
+<div class="flex items-center">
+<a href="index.html"><img src="../../assets/logo.png" alt="Robotics Education Academy Logo" style="height: 48px; width: auto;" class="mr-4 object-contain" /></a>
+</div>
+<nav class="hidden md:flex space-x-6 items-center">
+<a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../home/index.html">Home</a>
+<div class="relative group">
+    <button class="flex items-center text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps cursor-pointer">
+        Competitions ▾
+    </button>
+    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+        <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../fll/index.html">First Lego League (FLL)</a>
+        <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../impact_quest/index.html">Impact Quest (IQ)</a>
+    </div>
+</div>
+<a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../achievements/index.html">Achievements</a>
+<a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../contact/index.html">Contact</a>
+</nav>
+<button class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:opacity-90 transition-opacity">
+                Enroll Now
+            </button>
+</div>
+</header>
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col md:flex-row gap-gutter items-center justify-between">
+<div class="flex-1 flex flex-col gap-6 animate-[fade-in_400ms_ease-out]">
+<h1 class="font-headline-xl text-headline-xl text-primary-blue">
+                    Engineer Your Future, <br/><span class="text-primary-blue">One Block at a Time.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-dark opacity-80 max-w-xl">
+                    Join the Robotics Education Academy to build, program, and compete. Discover the excitement of FIRST LEGO League and VEX IQ in a hands-on, high-energy learning environment.
+                </p>
+<div class="flex gap-4 mt-4">
+<a href="#programs" class="bg-accent-green text-white font-button-text text-button-text px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">
+                        Start Exploring
+                    </a>
+</div>
+</div>
+<div class="flex-1 w-full relative animate-[fade-in_400ms_ease-out_200ms] aspect-video mb-4 md:mb-0 mr-4">
+<div class="absolute inset-0 bg-red-600 rounded-3xl translate-x-4 translate-y-4 shadow-sm"></div>
+<div class="absolute inset-0 rounded-3xl overflow-hidden bg-black z-10">
+<!-- To use a different YouTube video, replace the video ID (e.g., 'dQw4w9WgXcQ') in the src URL -->
+<iframe class="w-full h-full" src="https://www.youtube.com/embed/9XtUlQULRvA?si=m5qf_m5Y5yY5Y5Y5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+</section>
+<!-- Programs Section -->
+<section id="programs" class="w-full py-section-gap">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary-blue">Explore Our Programs</h2>
+<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-2xl mt-4">Structured pathways from introductory mechanics to advanced competitive programming.</p>
+</div>
+<div class="flex flex-col gap-16">
+<!-- FLL Program -->
+<div class="flex flex-col md:flex-row gap-8 items-center group">
+<div class="md:w-1/2 rounded-2xl overflow-hidden shadow-sm aspect-video">
+<img alt="FIRST LEGO League robot on competition mat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGZ9-2YFH8BFjfRy8Z1WSIhhIWXqAbTJigAqlEYBnMTgcgdaWQkN1yGN-aRuwskROkq14l3Zi_7CmypIYHHhd1yCCHCMjyQWfLQWKtSJ2jBkr16KBiuh8qB8KTlWINeQgLDDCgOjtyF_Sve1aEnOQxS_ZlO8MrtLg21t36-NM8znNIDNrkRcoVeqVN1Lq8Da89fOEArNn5MmpQSTXUW2-FFNZx5NTEKiujfyC6kdjpCyh5de44pY6b77iOSXBntr3B7k52vn5_X7M"/>
+</div>
+<div class="md:w-1/2 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-text-dark opacity-80 mb-2">Level: Beginner-Int</span>
+<h3 class="font-headline-md text-headline-md text-primary-blue mb-4">FIRST LEGO League</h3>
+<p class="font-body-md text-body-md text-text-dark opacity-80 mb-6">Master mechanics and basic coding. Compete in regional tournaments solving real-world engineering challenges.</p>
+<a href="../fll/index.html" class="inline-flex items-center text-primary-blue font-button-text font-semibold hover:underline">
+Learn more <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- VEX IQ Program -->
+<div class="flex flex-col md:flex-row-reverse gap-8 items-center group">
+<div class="md:w-1/2 rounded-2xl overflow-hidden shadow-sm aspect-video">
+<img alt="VEX IQ mechanical gears and structure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPRkubvKEHhNciYw0VWoYOi5_cTd1zSme3wWFTL8r-Kupd94Pji6IKvgq4LU6RlGKkhMFRYibxb0PtR68yAGI3XKMv5GdStAkOVSrNYSSsjq3Q53fwRw8-0D5U2h6ijbVmsUT9MKH0JIPsELI_ZKZzq1exl5-pgYDusut6UkJihIRqruEKlDrwUKcQFmrzoLWBijEk3_W6_B0mmQdOpxk6LC9Z8YqPsJq1hJd5KVQSgMZNaR8HqbPOZ6a45uF2uy7fbrCG61X1frk"/>
+</div>
+<div class="md:w-1/2 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-text-dark opacity-80 mb-2">Level: Int-Advanced</span>
+<h3 class="font-headline-md text-headline-md text-primary-blue mb-4">VEX IQ</h3>
+<p class="font-body-md text-body-md text-text-dark opacity-80 mb-6">Advanced structural design and autonomous programming for older students.</p>
+<a href="../impact_quest/index.html" class="inline-flex items-center text-primary-blue font-button-text font-semibold hover:underline">
+Learn more <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-dim dark:bg-inverse-surface grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full mt-auto">
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="font-headline-md text-headline-md font-bold text-primary-blue dark:text-inverse-primary">
+                Robotics Education Academy
+            </div>
+<p class="font-body-md text-body-md text-text-dark opacity-80 opacity-80 hover:opacity-100 transition-opacity">
+                © 2024 Robotics Education Academy. All rights reserved.
+            </p>
+</div>
+<div class="md:col-span-8 flex justify-start md:justify-end gap-6 items-end">
+<nav class="flex flex-wrap gap-6">
+<a class="font-body-md text-body-md text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">FAQ</a>
+<a class="font-body-md text-body-md text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Careers</a>
+</nav>
+</div>
+</footer>
+</body></html>

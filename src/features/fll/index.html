@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FIRST LEGO League | Robotics Education Academy</title>
+<!-- Google Fonts -->
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Material Symbols -->
+<!-- Tailwind CSS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+
+                      "primary-blue": "#0C469B",
+                      "accent-green": "#00A651",
+                      "accent-yellow": "#F9BF15",
+                      "accent-red": "#ED1C24",
+                      "bg-light": "#F8FAFD",
+                      "text-dark": "#1E293B",
+
+                      "surface-tint": "#007BFF",
+                      "surface-bright": "#FFFFFF",
+                      "on-tertiary": "#FFFFFF",
+                      "on-primary-fixed": "#002B70",
+                      "outline": "#9CA3AF",
+                      "secondary-fixed": "#FFCC00",
+                      "secondary": "#FFB800",
+                      "tertiary": "#4CAF50",
+                      "outline-variant": "#D1D5DB",
+                      "on-surface": "#111827",
+                      "on-tertiary-fixed": "#004004",
+                      "on-surface-variant": "#4B5563",
+                      "primary-container": "#D6E4FF",
+                      "on-secondary-fixed-variant": "#7A6200",
+                      "on-secondary-fixed": "#000000",
+                      "error": "#FF3B30",
+                      "on-secondary-container": "#7A6200",
+                      "primary-fixed-dim": "#A3C2FF",
+                      "on-background": "#111827",
+                      "on-primary-fixed-variant": "#0040A8",
+                      "surface-container-highest": "#E5E7EB",
+                      "primary": "#007BFF",
+                      "on-tertiary-container": "#004004",
+                      "pure-white": "#FFFFFF",
+                      "inverse-primary": "#A3C2FF",
+                      "tertiary-container": "#DDF5DF",
+                      "secondary-container": "#FFF4CC",
+                      "on-primary-container": "#002B70",
+                      "on-error-container": "#7A0000",
+                      "surface-container-low": "#F9FAFB",
+                      "on-error": "#FFFFFF",
+                      "surface-gray": "#F3F4F6",
+                      "surface-variant": "#F0F4F8",
+                      "surface-container": "#F3F4F6",
+                      "surface": "#FFFFFF",
+                      "on-primary": "#FFFFFF",
+                      "inverse-surface": "#1F2937",
+                      "on-secondary": "#000000",
+                      "inverse-on-surface": "#F9FAFB",
+                      "background": "#FFFFFF",
+                      "surface-dim": "#D1D5DB",
+                      "primary-fixed": "#D6E4FF",
+                      "error-container": "#FFD6D6",
+                      "secondary-fixed-dim": "#FFB800",
+                      "robotics-red": "#FF3B30",
+                      "surface-container-lowest": "#FFFFFF",
+                      "surface-container-high": "#E5E7EB",
+                      "tertiary-fixed-dim": "#4CAF50",
+                      "on-tertiary-fixed-variant": "#004004",
+                      "tertiary-fixed": "#DDF5DF"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "1.5rem",
+                      "xl": "2rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "12px",
+                      "margin-mobile": "24px",
+                      "animation-slide-down": "500ms cubic-bezier(0.16, 1, 0.3, 1)",
+                      "animation-fade-in": "400ms ease-out",
+                      "margin-desktop": "80px",
+                      "gutter": "32px",
+                      "section-gap": "96px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Fredoka", "sans-serif"],
+                      "button-text": ["Fredoka", "sans-serif"],
+                      "body-lg": ["Nunito", "sans-serif"],
+                      "body-md": ["Nunito", "sans-serif"],
+                      "body-sm": ["Nunito", "sans-serif"],
+                      "headline-xl": ["Fredoka", "sans-serif"],
+                      "headline-lg": ["Fredoka", "sans-serif"],
+                      "headline-md": ["Fredoka", "sans-serif"],
+                      "headline-sm": ["Fredoka", "sans-serif"],
+                      "headline-lg-mobile": ["Fredoka", "sans-serif"]
+              }
+            }
+          }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white border-b border-outline-variant full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-7xl mx-auto">
+<div class="flex items-center">
+<a href="../home/index.html"><img src="../../assets/logo.png" alt="Robotics Education Academy Logo" style="height: 48px; width: auto;" class="mr-4 object-contain" /></a>
+</div>
+<nav class="hidden md:flex space-x-6 items-center">
+<a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../home/index.html">Home</a>
+<div class="relative group">
+    <button class="flex items-center text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps cursor-pointer">
+        Competitions ▾
+    </button>
+    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+        <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../fll/index.html">First Lego League (FLL)</a>
+        <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../impact_quest/index.html">Impact Quest (IQ)</a>
+    </div>
+</div>
+<a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../achievements/index.html">Achievements</a>
+<a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../contact/index.html">Contact</a>
+</nav>
+<button class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:opacity-90 transition-opacity">
+                Enroll Now
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full min-h-[614px] flex items-center justify-center overflow-hidden bg-on-primary-fixed">
+<div class="absolute inset-0 z-0 opacity-40">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeeaJUxnqr_uoGohiglobKqK8vMxuc5vV4vQlx0OUq5kNB3mAZORvOsBz1bKARhkwunqTNQpHiEsewdlhwKwXK29490PlLr88clYFyhw01bvdOsBzIWq5uV-W0iXhhCybSgZmAs3HRJt87Npfs-g1O1sSc_vHnRBDjpS5tGaXMVPQ5bXB-vGwl9uClrW84sEgdqBCBZ74H_o6WkRc1hs1Eafksm2VFbMC0NxhrwCKHylmtEVj7EutmA3EOVTaJ3G_cwN4jh3sCEtc"/>
+</div>
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-on-primary-fixed via-on-primary-fixed/80 to-transparent"></div>
+<div class="relative z-20 max-w-7xl mx-auto px-margin-desktop text-center mt-16">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-fixed/20 rounded-full border border-secondary-fixed mb-6 backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed" data-weight="fill" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider">Official Program Partner</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-pure-white mb-6 max-w-4xl mx-auto">
+                    Engineer the Future with <span class="text-secondary-fixed">FIRST® LEGO® League</span>
+</h1>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mx-auto mb-10">
+                    Discover the thrill of engineering, coding, and teamwork. FLL empowers students to solve real-world problems through hands-on robotics and innovative thinking.
+                </p>
+<div class="flex justify-center gap-4">
+<button class="bg-secondary-fixed text-on-secondary-fixed font-button-text text-button-text px-8 py-3 rounded-lg hover:bg-secondary-fixed-dim transition-colors">
+                        Join a Team
+                    </button>
+<button class="bg-transparent border-2 border-primary-fixed text-primary-fixed font-button-text text-button-text px-8 py-3 rounded-lg hover:bg-primary-fixed/10 transition-colors">
+                        View Curriculum
+                    </button>
+</div>
+</div>
+</section>
+<!-- Professional Overview (Asymmetric Layout) -->
+<section class="max-w-7xl mx-auto px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 flex flex-col justify-center space-y-6">
+<h2 class="font-headline-lg text-headline-lg text-primary-blue tracking-tight">
+                        More Than Just Robots. <br/>It's a Mindset.
+                    </h2>
+<p class="font-body-md text-body-md text-text-dark opacity-80">
+                        FIRST LEGO League introduces science, technology, engineering, and math (STEM) to children through fun, exciting hands-on learning. Participants gain real-world problem-solving experiences through a guided, global robotics program, helping today’s students and teachers build a better future together.
+                    </p>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="p-4 bg-surface-bright rounded-lg border border-outline-variant flex flex-col items-start hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow">
+<span class="material-symbols-outlined text-primary-blue mb-2 text-3xl">code_blocks</span>
+<span class="font-headline-md text-headline-md text-on-surface mb-1">98%</span>
+<span class="font-label-caps text-label-caps text-text-dark opacity-80">Improve Coding</span>
+</div>
+<div class="p-4 bg-surface-bright rounded-lg border border-outline-variant flex flex-col items-start hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow">
+<span class="material-symbols-outlined text-tertiary-container mb-2 text-3xl">group_work</span>
+<span class="font-headline-md text-headline-md text-on-surface mb-1">100%</span>
+<span class="font-label-caps text-label-caps text-text-dark opacity-80">Team Collaboration</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-4 h-full relative">
+<div class="col-span-1 flex flex-col gap-4">
+<div class="bg-surface-gray rounded-xl h-64 overflow-hidden border border-outline-variant relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnW4XfTnVaVB9KMo5ObP-RO7lKkfSa_eGhKN_7uPVPkWAGl3ESp7PYWV0OXpiLe9E7wn0No1KvcvsBna6OYJ68_RCERldprH3J1-DNPbBVL0VRw6zdw1eDQn3BqGaVxqjqRbU_Tkr0z4obpZI7bDfaYLdiml8f0N1MVG3Zn8mcZlC9CmlrTSGHiUU9GVzqgmjWV_NOT4zIKzursYeQ2Y4DfM_xxqQ9J5rgp-dAB5Y_G2lHma1zAsdNxPQJJtWos0CLpIm_K9HZJrE"/>
+</div>
+<div class="bg-primary-container rounded-xl h-40 p-6 flex items-end justify-start border border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-primary-container uppercase">Core Values Emphasized</p>
+</div>
+</div>
+<div class="col-span-1 pt-12">
+<div class="bg-surface-gray rounded-xl h-80 overflow-hidden border border-outline-variant relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnntYiwurwFxOc7WU0yPR6kqDqVKOx1yq96Lpg--KxlqL5t4i9sqZe3hMiZnKGRnQmUzHR23QNbMl75vCQDQu25WC7rLXHL8932LaE_Bg9UcDoOVovRz9PabiFpCDzXwMSLLQV6WCX1fFa2HM625nEgZlVa334KXihlKC5hylP1kPc5wmIBztUS91eP25eDanfnqzzHFJrlWaz86CS3xMQHvljr0zKtCuA0OvtVG3U4NPwEtVSN13BpRx2s1scCmid6gMwNnr_ubQ"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Age Group Cards Section -->
+<section class="bg-surface-gray py-section-gap border-t border-outline-variant">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Divisions by Age</h2>
+<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-2xl mx-auto">
+                        Progressive challenges designed to ignite curiosity and build foundational STEM skills at every stage of development.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Age 5-7 -->
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_8px_24px_rgba(0,50,125,0.1)] transition-shadow duration-300 relative pb-24 h-full flex flex-col">
+<div class="h-2 w-full bg-tertiary-fixed rounded-t-lg"></div>
+<div class="p-8 flex-grow">
+<div class="inline-flex px-3 py-1 bg-tertiary-fixed/20 text-on-tertiary-fixed-variant font-label-caps text-label-caps rounded-full mb-6">
+                                Age 5-7
+                            </div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">FLL Discover</h3>
+<ul class="space-y-4 mb-6">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Playful introduction to fundamental STEM concepts.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Basic coding logic using physical blocks.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Fosters early teamwork and communication skills.</span>
+</li>
+</ul>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-max">
+<button class="bg-transparent border-2 border-primary text-primary-blue font-button-text text-button-text px-6 py-2 rounded-lg hover:bg-primary/5 transition-colors">
+                                Learn More
+                            </button>
+</div>
+</div>
+<!-- Card 2: Age 7-12 -->
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_8px_24px_rgba(0,50,125,0.1)] transition-shadow duration-300 relative pb-24 h-full flex flex-col">
+<div class="h-2 w-full bg-secondary-container rounded-t-lg"></div>
+<div class="p-8 flex-grow">
+<div class="inline-flex px-3 py-1 bg-secondary-container/30 text-on-secondary-container font-label-caps text-label-caps rounded-full mb-6">
+                                Age 7-12
+                            </div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">FLL Explore</h3>
+<ul class="space-y-4 mb-6">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Investigate real-world scientific problems.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Design and program motorized LEGO models.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Develop crucial presentation and core values.</span>
+</li>
+</ul>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-max">
+<button class="bg-transparent border-2 border-primary text-primary-blue font-button-text text-button-text px-6 py-2 rounded-lg hover:bg-primary/5 transition-colors">
+                                Learn More
+                            </button>
+</div>
+</div>
+<!-- Card 3: Age 12-17 -->
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_8px_24px_rgba(0,50,125,0.1)] transition-shadow duration-300 relative pb-24 h-full flex flex-col">
+<div class="h-2 w-full bg-primary-blue rounded-t-lg"></div>
+<div class="p-8 flex-grow">
+<div class="inline-flex px-3 py-1 bg-primary/10 text-primary-blue font-label-caps text-label-caps rounded-full mb-6">
+                                Age 12-17
+                            </div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">FLL Challenge</h3>
+<ul class="space-y-4 mb-6">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-blue text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Advanced autonomous robot design and coding.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-blue text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Execute complex missions on a thematic playing field.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-blue text-xl shrink-0">check_circle</span>
+<span class="font-body-md text-body-md text-text-dark opacity-80">Research and pitch an innovative community project.</span>
+</li>
+</ul>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-max">
+<button class="bg-transparent border-2 border-primary text-primary-blue font-button-text text-button-text px-6 py-2 rounded-lg hover:bg-primary/5 transition-colors">
+                                Learn More
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dim">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-section-gap w-full max-w-7xl mx-auto">
+<div class="md:col-span-6 flex flex-col items-start space-y-4">
+<span class="font-headline-md text-headline-md font-bold text-primary-blue">
+                    Robotics Education Academy
+                </span>
+<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-md">
+                    Empowering the next generation of innovators, engineers, and leaders through hands-on robotics excellence.
+                </p>
+<p class="font-label-caps text-label-caps text-text-dark opacity-80 mt-8">
+                    © 2024 Robotics Education Academy. All rights reserved.
+                </p>
+</div>
+<div class="md:col-span-6 flex flex-col md:items-end justify-center space-y-4">
+<nav class="flex flex-wrap gap-6">
+<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">Careers</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>
