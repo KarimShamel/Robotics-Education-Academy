@@ -34,6 +34,20 @@
           darkMode: "class",
           theme: {
             extend: {
+              "keyframes": {
+                "fade-in": {
+                  "0%": { "opacity": "0", "transform": "translateY(10px)" },
+                  "100%": { "opacity": "1", "transform": "translateY(0)" }
+                },
+                "slide-down": {
+                  "0%": { "opacity": "0", "transform": "translateY(-10px)" },
+                  "100%": { "opacity": "1", "transform": "translateY(0)" }
+                }
+              },
+              "animation": {
+                "fade-in": "fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+                "slide-down": "slide-down 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards"
+              },
               "colors": {
 
                       "primary-blue": "#0C469B",
@@ -140,7 +154,7 @@
     <button class="flex items-center text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps cursor-pointer">
         Competitions ▾
     </button>
-    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] z-50 overflow-hidden">
         <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../fll/index.html">First Lego League (FLL)</a>
         <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../impact_quest/index.html">Impact Quest (IQ)</a>
     </div>
@@ -148,13 +162,13 @@
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../achievements/index.html">Achievements</a>
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../contact/index.html">Contact</a>
 </nav>
-<a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:opacity-90 transition-opacity">
+<a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:scale-105 active:scale-95 hover:shadow-lg transition-all duration-200">
                 Enroll Now
             </a>
 </div>
 </header>
 <!-- Main Content -->
-<main class="flex-grow">
+<main class="opacity-0 animate-fade-in flex-grow">
 <!-- Hero Section -->
 <section class="relative w-full min-h-[614px] flex items-center justify-center overflow-hidden bg-on-primary-fixed">
 <div class="absolute inset-0 z-0 opacity-40">
@@ -173,7 +187,7 @@
                     Discover the thrill of engineering, coding, and teamwork. FLL empowers students to solve real-world problems through hands-on robotics and innovative thinking.
                 </p>
 <div class="flex justify-center gap-4">
-<button class="bg-secondary-fixed text-on-secondary-fixed font-button-text text-button-text px-8 py-3 rounded-lg hover:bg-secondary-fixed-dim transition-colors">
+<button class="bg-secondary-fixed text-on-secondary-fixed font-button-text text-button-text px-8 py-3 rounded-lg hover:bg-secondary-fixed-dim hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg">
                         Join a Team
                     </button>
 <button class="bg-transparent border-2 border-primary-fixed text-primary-fixed font-button-text text-button-text px-8 py-3 rounded-lg hover:bg-primary-fixed/10 transition-colors">
@@ -193,12 +207,12 @@
                         FIRST LEGO League introduces science, technology, engineering, and math (STEM) to children through fun, exciting hands-on learning. Participants gain real-world problem-solving experiences through a guided, global robotics program, helping today’s students and teachers build a better future together.
                     </p>
 <div class="grid grid-cols-2 gap-4 mt-4">
-<div class="p-4 bg-surface-bright rounded-lg border border-outline-variant flex flex-col items-start hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow">
+<div class="p-4 bg-surface-bright rounded-lg border border-outline-variant flex flex-col items-start hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]">
 <span class="material-symbols-outlined text-primary-blue mb-2 text-3xl">code_blocks</span>
 <span class="font-headline-md text-headline-md text-on-surface mb-1">98%</span>
 <span class="font-label-caps text-label-caps text-text-dark opacity-80">Improve Coding</span>
 </div>
-<div class="p-4 bg-surface-bright rounded-lg border border-outline-variant flex flex-col items-start hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow">
+<div class="p-4 bg-surface-bright rounded-lg border border-outline-variant flex flex-col items-start hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]">
 <span class="material-symbols-outlined text-tertiary-container mb-2 text-3xl">group_work</span>
 <span class="font-headline-md text-headline-md text-on-surface mb-1">100%</span>
 <span class="font-label-caps text-label-caps text-text-dark opacity-80">Team Collaboration</span>
@@ -232,7 +246,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-4xl mx-auto">
 <!-- Card 2: Age 7-12 -->
-<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_8px_24px_rgba(0,50,125,0.1)] transition-shadow duration-300 relative pb-24 h-full flex flex-col">
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] relative pb-24 h-full flex flex-col">
 <div class="h-2 w-full bg-secondary-container rounded-t-lg"></div>
 <div class="p-8 flex-grow">
 <div class="inline-flex px-3 py-1 bg-secondary-container/30 text-on-secondary-container font-label-caps text-label-caps rounded-full mb-6">
@@ -261,7 +275,7 @@
 </div>
 </div>
 <!-- Card 3: Age 12-17 -->
-<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_8px_24px_rgba(0,50,125,0.1)] transition-shadow duration-300 relative pb-24 h-full flex flex-col">
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] relative pb-24 h-full flex flex-col">
 <div class="h-2 w-full bg-primary-blue rounded-t-lg"></div>
 <div class="p-8 flex-grow">
 <div class="inline-flex px-3 py-1 bg-primary/10 text-primary-blue font-label-caps text-label-caps rounded-full mb-6">
@@ -294,26 +308,31 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-dim">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-section-gap w-full max-w-7xl mx-auto">
-<div class="md:col-span-6 flex flex-col items-start space-y-4">
-<span class="font-headline-md text-headline-md font-bold text-primary-blue">
-                    Robotics Education Academy
-                </span>
-<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-md">
-                    Empowering the next generation of innovators, engineers, and leaders through hands-on robotics excellence.
-                </p>
-<p class="font-label-caps text-label-caps text-text-dark opacity-80 mt-8">
-                    © 2024 Robotics Education Academy. All rights reserved.
-                </p>
+<footer class="w-full bg-surface-dim dark:bg-inverse-surface border-t border-outline-variant mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full max-w-7xl mx-auto">
+<!-- Brand & Copyright -->
+<div class="md:col-span-6 flex flex-col justify-between">
+<div>
+<span class="font-headline-md text-headline-md font-bold text-primary-blue dark:text-inverse-primary flex items-center gap-2 mb-4">
+<img src="../../assets/logo.png" alt="Logo" style="height: 32px; width: auto;"/>
+                        Robotics Education Academy
+                    </span>
+<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-sm mb-6">Empowering students through engineered fun. Building skills for tomorrow's technology leaders.</p>
 </div>
-<div class="md:col-span-6 flex flex-col md:items-end justify-center space-y-4">
-<nav class="flex flex-wrap gap-6">
-<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">FAQ</a>
-<a class="font-body-md text-body-md text-text-dark opacity-80 hover:text-secondary transition-colors" href="#">Careers</a>
-</nav>
+<p class="font-body-md text-body-md text-text-dark opacity-80 text-sm">© 2024 Robotics Education Academy. All rights reserved.</p>
+</div>
+<!-- Links -->
+<div class="md:col-span-6 flex flex-wrap gap-8 md:justify-end">
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface font-bold tracking-wider mb-2">Resources</span>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface font-bold tracking-wider mb-2">Company</span>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">FAQ</a>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Careers</a>
+</div>
 </div>
 </div>
 </footer>

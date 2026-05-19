@@ -13,6 +13,20 @@
           darkMode: "class",
           theme: {
             extend: {
+              "keyframes": {
+                "fade-in": {
+                  "0%": { "opacity": "0", "transform": "translateY(10px)" },
+                  "100%": { "opacity": "1", "transform": "translateY(0)" }
+                },
+                "slide-down": {
+                  "0%": { "opacity": "0", "transform": "translateY(-10px)" },
+                  "100%": { "opacity": "1", "transform": "translateY(0)" }
+                }
+              },
+              "animation": {
+                "fade-in": "fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+                "slide-down": "slide-down 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards"
+              },
               "colors": {
 
                       "primary-blue": "#0C469B",
@@ -125,7 +139,7 @@
     <button class="flex items-center text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps cursor-pointer">
         Competitions ▾
     </button>
-    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] z-50 overflow-hidden">
         <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../fll/index.html">First Lego League (FLL)</a>
         <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../impact_quest/index.html">Impact Quest (IQ)</a>
     </div>
@@ -133,13 +147,13 @@
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../achievements/index.html">Achievements</a>
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../contact/index.html">Contact</a>
 </nav>
-<a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:opacity-90 transition-opacity">
+<a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:scale-105 active:scale-95 hover:shadow-lg transition-all duration-200">
                 Enroll Now
             </a>
 </div>
 </header>
 <!-- Main Content -->
-<main class="flex-grow flex flex-col gap-section-gap pb-section-gap">
+<main class="opacity-0 animate-fade-in flex-grow flex flex-col gap-section-gap pb-section-gap">
 <!-- Hero Section -->
 <section class="relative pt-24 pb-16 px-margin-desktop md:px-margin-desktop px-margin-mobile flex flex-col items-center text-center bg-surface-bright overflow-hidden">
 <div class="absolute inset-0 bg-pattern opacity-20 pointer-events-none"></div>
@@ -247,7 +261,7 @@
 <div class="md:col-span-6 flex flex-col justify-between">
 <div>
 <span class="font-headline-md text-headline-md font-bold text-primary-blue dark:text-inverse-primary flex items-center gap-2 mb-4">
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<img src="../../assets/logo.png" alt="Logo" style="height: 32px; width: auto;"/>
                         Robotics Education Academy
                     </span>
 <p class="font-body-md text-body-md text-text-dark opacity-80 max-w-sm mb-6">Empowering students through engineered fun. Building skills for tomorrow's technology leaders.</p>

@@ -37,6 +37,20 @@
           darkMode: "class",
           theme: {
             extend: {
+              "keyframes": {
+                "fade-in": {
+                  "0%": { "opacity": "0", "transform": "translateY(10px)" },
+                  "100%": { "opacity": "1", "transform": "translateY(0)" }
+                },
+                "slide-down": {
+                  "0%": { "opacity": "0", "transform": "translateY(-10px)" },
+                  "100%": { "opacity": "1", "transform": "translateY(0)" }
+                }
+              },
+              "animation": {
+                "fade-in": "fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+                "slide-down": "slide-down 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards"
+              },
               "colors": {
 
                       "primary-blue": "#0C469B",
@@ -143,7 +157,7 @@
     <button class="flex items-center text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps cursor-pointer">
         Competitions ▾
     </button>
-    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+    <div class="absolute left-0 mt-2 w-56 bg-white border border-outline-variant rounded-lg shadow-lg opacity-0 invisible translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] z-50 overflow-hidden">
         <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../fll/index.html">First Lego League (FLL)</a>
         <a class="block px-4 py-3 text-text-dark font-medium hover:bg-bg-light hover:text-primary-blue font-label-caps text-sm border-b border-outline-variant last:border-0 transition-colors" href="../impact_quest/index.html">Impact Quest (IQ)</a>
     </div>
@@ -151,12 +165,12 @@
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../achievements/index.html">Achievements</a>
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../contact/index.html">Contact</a>
 </nav>
-<a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:opacity-90 transition-opacity">
+<a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:scale-105 active:scale-95 hover:shadow-lg transition-all duration-200">
                 Enroll Now
             </a>
 </div>
 </header>
-<main class="flex-grow">
+<main class="opacity-0 animate-fade-in flex-grow">
 <!-- Hero Section -->
 <section class="relative w-full bg-surface-container-low py-section-gap overflow-hidden">
 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-colors-primary-container),_transparent_40%)]"></div>
@@ -204,7 +218,7 @@
 <!-- Bento Grid Features -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="bg-surface-bright p-6 rounded-lg border border-outline-variant flex flex-col gap-3">
-<span class="material-symbols-outlined text-primary-blue text-4xl" data-weight="fill">precision_manufacturing</span>
+<span class="material-symbols-outlined text-primary-blue text-4xl" data-weight="fill">design_services</span>
 <h3 class="font-headline-md text-headline-md text-on-surface">Intuitive Design</h3>
 <p class="font-body-md text-body-md text-text-dark opacity-80">Tool-less construction allows for rapid prototyping and immediate physical feedback during the engineering process.</p>
 </div>
@@ -236,7 +250,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Card 1: Age 5-7 -->
-<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow duration-300 flex flex-col p-8">
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] duration-300 flex flex-col p-8">
 <div class="text-center mb-6">
 <h3 class="font-headline-md text-headline-md text-on-surface mb-2">IQ Spark</h3>
 <div class="inline-block bg-surface-container text-on-surface font-label-caps text-label-caps px-4 py-1 rounded-full">
@@ -266,7 +280,7 @@
 </div>
 </div>
 <!-- Card 2: Age 7-12 -->
-<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow duration-300 flex flex-col p-8 relative">
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] duration-300 flex flex-col p-8 relative">
 <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-4 py-1 rounded-full border border-secondary border-opacity-20 shadow-sm">
                             Most Popular
                         </div>
@@ -299,7 +313,7 @@
 </div>
 </div>
 <!-- Card 3: Age 12-17 -->
-<div class="bg-pure-white rounded-lg border border-outline-variant hover:shadow-[0_4px_12px_rgba(0,50,125,0.1)] transition-shadow duration-300 flex flex-col p-8">
+<div class="bg-pure-white rounded-lg border border-outline-variant hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] duration-300 flex flex-col p-8">
 <div class="text-center mb-6">
 <h3 class="font-headline-md text-headline-md text-on-surface mb-2">IQ Innovator</h3>
 <div class="inline-block bg-surface-container text-on-surface font-label-caps text-label-caps px-4 py-1 rounded-full">
@@ -335,27 +349,29 @@
 <!-- Footer -->
 <footer class="w-full bg-surface-dim dark:bg-inverse-surface border-t border-outline-variant">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full max-w-7xl mx-auto">
-<!-- Brand -->
-<div class="md:col-span-4 flex flex-col gap-4">
-<div class="font-headline-md text-headline-md font-bold text-primary-blue dark:text-inverse-primary">
-                    Robotics Education Academy
-                </div>
-<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-sm">
-                    Empowering the next generation of engineers, programmers, and innovators through competitive robotics.
-                </p>
+<!-- Brand & Copyright -->
+<div class="md:col-span-6 flex flex-col justify-between">
+<div>
+<span class="font-headline-md text-headline-md font-bold text-primary-blue dark:text-inverse-primary flex items-center gap-2 mb-4">
+<img src="../../assets/logo.png" alt="Logo" style="height: 32px; width: auto;"/>
+                        Robotics Education Academy
+                    </span>
+<p class="font-body-md text-body-md text-text-dark opacity-80 max-w-sm mb-6">Empowering students through engineered fun. Building skills for tomorrow's technology leaders.</p>
+</div>
+<p class="font-body-md text-body-md text-text-dark opacity-80 text-sm">© 2024 Robotics Education Academy. All rights reserved.</p>
 </div>
 <!-- Links -->
-<div class="md:col-span-8 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
-<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">FAQ</a>
-<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Careers</a>
+<div class="md:col-span-6 flex flex-wrap gap-8 md:justify-end">
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface font-bold tracking-wider mb-2">Resources</span>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
 </div>
-<!-- Copyright -->
-<div class="col-span-1 md:col-span-12 mt-12 pt-8 border-t border-surface-container-high dark:border-surface-container-lowest">
-<p class="font-body-md text-body-md text-text-dark opacity-80 dark:text-surface-variant text-center md:text-left">
-                    © 2024 Robotics Education Academy. All rights reserved.
-                </p>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface font-bold tracking-wider mb-2">Company</span>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">FAQ</a>
+<a class="font-label-caps text-label-caps text-text-dark opacity-80 dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Careers</a>
+</div>
 </div>
 </div>
 </footer>
