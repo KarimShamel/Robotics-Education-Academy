@@ -154,9 +154,9 @@
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../achievements/index.html">Achievements</a>
 <a class="text-text-dark font-medium hover:text-primary-blue transition-colors duration-200 font-label-caps text-label-caps" href="../contact/index.html">Contact</a>
 </nav>
-<a href="#children-container" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded hover:scale-105 active:scale-95 hover:shadow-lg transition-all duration-200">
-                Enroll Now
-            </a>
+<div id="auth-section" class="flex items-center gap-4">
+    <!-- Auth buttons will be injected here via JS -->
+</div>
 </div>
 </header>
 <!-- Main Content Canvas -->
@@ -292,6 +292,42 @@
 </div>
 </div>
 </footer>
+
+<script type="module">
+    import { isAuthenticated, logout } from '../auth/auth-client.js';
+
+    const authSection = document.getElementById('auth-section');
+
+    function updateAuthUI() {
+        if (isAuthenticated()) {
+            authSection.innerHTML = `
+                <a href="../contact/index.html" class="bg-accent-green text-white font-button-text font-bold px-6 py-2 rounded-full hover:scale-105 active:scale-95 hover:shadow-lg transition-all duration-200">
+                    Enroll Now
+                </a>
+                <button id="logoutBtn" class="border-2 border-red-500 text-red-500 bg-white font-button-text font-bold px-5 py-1.5 rounded-full hover:bg-red-50 hover:shadow transition-all duration-200">
+                    Logout
+                </button>
+            `;
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+        } else {
+            authSection.innerHTML = `
+                <a href="../contact/index.html" class="hidden md:inline-block border-2 border-accent-green text-accent-green bg-transparent hover:bg-accent-green hover:text-white font-button-text font-bold px-5 py-1.5 rounded-full transition-all duration-200 shadow-sm">
+                    Enroll Now
+                </a>
+                <div class="h-6 w-px bg-outline-variant mx-1 hidden md:block"></div>
+                <a href="../auth/login.html" class="text-text-dark hover:text-primary-blue font-button-text font-bold px-3 py-2 transition-colors duration-200">
+                    Login
+                </a>
+                <a href="../auth/signup.html" class="bg-primary-blue text-white font-button-text font-bold px-6 py-2 rounded-full hover:bg-blue-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                    Sign Up
+                </a>
+            `;
+        }
+    }
+
+    updateAuthUI();
+</script>
+
 <script>
     const container = document.getElementById('children-container');
     const addBtn = document.getElementById('add-child-btn');
