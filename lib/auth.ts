@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const pool = new Pool({
+export const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false
@@ -13,11 +13,25 @@ const pool = new Pool({
 });
 
 export const auth = betterAuth({
+    baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+    trustedOrigins: [
+        "http://localhost:3000", 
+        "http://localhost:5500", 
+        "http://127.0.0.1:5500", 
+        "http://127.0.0.1:3000", 
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "https://robotics-edu.vercel.app"
+    ],
     database: pool,
     plugins: [
-        admin()
+        admin({
+            defaultRole: "client"
+        })
     ],
     emailAndPassword: {
-        enabled: true
+        enabled: true,
+        minPasswordLength: 8,
+        maxPasswordLength: 32
     }
 });

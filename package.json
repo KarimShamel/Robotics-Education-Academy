@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,29 @@
   "homepage": "https://github.com/DragSensei/Landing-Page-for-RoboticsEdu#readme",
   "dependencies": {
     "@better-auth/client": "^0.0.2-alpha.3",
+    "@types/formidable": "^3.5.1",
+    "@vercel/blob": "^2.4.0",
+    "@vercel/node": "^5.8.8",
     "better-auth": "^1.6.11",
     "dotenv": "^17.4.2",
-    "pg": "^8.21.0"
+    "formidable": "^3.5.4",
+    "pg": "^8.21.0",
+    "sanitize-html": "^2.17.4",
+    "sharp": "^0.34.5",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1",
+    "@types/sanitize-html": "^2.16.1",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "undici": "^6.24.0",
+    "minimatch": "^10.2.3",
+    "path-to-regexp": "^8.0.0",
+    "smol-toml": "^1.6.1",
+    "ajv": "^8.17.2"
   }
 }
