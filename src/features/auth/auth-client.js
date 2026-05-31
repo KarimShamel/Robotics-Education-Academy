@@ -82,7 +82,7 @@ export const renderAuthUI = async (authSectionElement, relativePath = '../') => 
                 : '';
             return `
                 ${dashboardLink}
-                <a href="${relativePath}contact/index.html" class="hidden md:inline-block border-2 border-accent-green text-accent-green bg-transparent hover:bg-accent-green hover:text-white font-button-text font-bold px-5 py-1.5 rounded-full transition-all duration-200 shadow-sm">
+                <a href="${relativePath}contact/index.html" class="hidden lg:inline-block border-2 border-accent-green text-accent-green bg-transparent hover:bg-accent-green hover:text-white font-button-text font-bold px-5 py-1.5 rounded-full transition-all duration-200 shadow-sm whitespace-nowrap">
                     Enroll Now
                 </a>
                 <button id="logoutBtn" class="ml-4 border-2 border-red-500 text-red-500 bg-white font-button-text font-bold px-5 py-1.5 rounded-full hover:bg-red-50 hover:shadow transition-all duration-200">
@@ -91,10 +91,10 @@ export const renderAuthUI = async (authSectionElement, relativePath = '../') => 
             `;
         } else {
             return `
-                <a href="${relativePath}contact/index.html" class="hidden md:inline-block border-2 border-accent-green text-accent-green bg-transparent hover:bg-accent-green hover:text-white font-button-text font-bold px-5 py-1.5 rounded-full transition-all duration-200 shadow-sm">
+                <a href="${relativePath}contact/index.html" class="hidden lg:inline-block border-2 border-accent-green text-accent-green bg-transparent hover:bg-accent-green hover:text-white font-button-text font-bold px-5 py-1.5 rounded-full transition-all duration-200 shadow-sm whitespace-nowrap">
                     Enroll Now
                 </a>
-                <div class="h-6 w-px bg-outline-variant mx-1 hidden md:block"></div>
+                <div class="h-6 w-px bg-outline-variant mx-1 hidden lg:block"></div>
                 <a href="${relativePath}auth/login.html" class="text-text-dark hover:text-primary-blue font-button-text font-bold px-3 py-2 transition-colors duration-200">
                     Login
                 </a>
