@@ -1,4 +1,4 @@
-import { pool } from "./auth";
+import { pool } from "./auth.js";
 
 export const uploadRateLimit = {
     limit: async (userId: string) => {

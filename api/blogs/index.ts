@@ -1,4 +1,4 @@
-import { auth, pool } from "../../lib/auth";
+import { auth, pool } from "../../lib/auth.js";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { z } from "zod";
 import sanitizeHtml from "sanitize-html";
