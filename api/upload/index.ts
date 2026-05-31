@@ -1,4 +1,4 @@
-import { auth } from "../../lib/auth";
+import { auth } from "../../lib/auth.js";
 import formidable from "formidable";
 import fs from "fs";
 import sharp from "sharp";
