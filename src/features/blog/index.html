@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Blog - Robotics Education Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-blue": "#0C469B",
+                      "accent-green": "#00A651",
+                      "accent-yellow": "#F9BF15",
+                      "accent-red": "#ED1C24",
+                      "bg-light": "#F8FAFD",
+                      "text-dark": "#1E293B",
+                      "surface-dim": "#D1D5DB",
+                      "surface-variant": "#F0F4F8"
+              },
+              "fontFamily": {
+                      "label-caps": ["Fredoka", "sans-serif"],
+                      "button-text": ["Fredoka", "sans-serif"],
+                      "body-lg": ["Nunito", "sans-serif"],
+                      "body-md": ["Nunito", "sans-serif"],
+                      "headline-xl": ["Fredoka", "sans-serif"],
+                      "headline-lg": ["Fredoka", "sans-serif"]
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+</head>
+<body class="bg-bg-light text-text-dark font-body-md min-h-screen flex flex-col">
+
+<!-- TopNavBar Component -->
+<header></header>
+<script type="module" src="../navbar.js"></script>
+
+<main class="flex-grow w-full max-w-5xl mx-auto px-6 md:px-20 py-12 md:py-20" id="blog-container">
+    <div class="flex justify-center items-center py-20">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-blue"></div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-surface-dim border-t border-gray-200 mt-auto">
+    <div class="px-6 md:px-20 py-12 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div>
+            <span class="font-headline-lg text-primary-blue font-bold flex items-center gap-2 mb-2">
+                <img src="../../assets/logo.png" alt="Logo" style="height: 32px; width: auto;"/>
+                Robotics Education Academy
+            </span>
+            <p class="font-body-md text-text-dark opacity-80 max-w-sm">Empowering students through engineered fun.</p>
+        </div>
+        <p class="font-body-md text-text-dark opacity-80 text-sm">© 2024 Robotics Education Academy. All rights reserved.</p>
+    </div>
+</footer>
+
+<script type="module">
+    const escapeHtml = (unsafe) => {
+        if (!unsafe) return '';
+        return String(unsafe)
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+    };
+
+    async function loadBlog() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const container = document.getElementById('blog-container');
+
+        if (!id) {
+            container.innerHTML = `<div class="text-center py-20"><h2 class="text-3xl text-primary-blue font-headline-lg">Blog post not found</h2><a href="../achievements/index.html" class="mt-4 text-primary-blue underline">Back to Achievements</a></div>`;
+            return;
+        }
+
+        try {
+            const res = await fetch(`/api/blogs/${id}`);
+            if (!res.ok) throw new Error('Blog not found');
+            const blog = await res.json();
+            
+            const date = new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Format content to support basic paragraphs
+            const formattedContent = escapeHtml(blog.content).replace(/\n/g, '<br/>');
+            
+            // Parse images
+            let images = [];
+            if (blog.images) {
+                images = typeof blog.images === 'string' ? JSON.parse(blog.images) : blog.images;
+            }
+            // Ensure main image is also included if missing from images array
+            if (blog.image_url && !images.includes(blog.image_url)) {
+                images.unshift(blog.image_url);
+            }
+
+            let galleryHtml = '';
+            if (images.length > 1) {
+                galleryHtml = `
+                    <div class="mt-16">
+                        <h3 class="font-headline-lg text-2xl text-primary-blue mb-6">Gallery</h3>
+                        <div id="slider-viewport" class="relative w-full min-h-[200px] transition-[height] duration-300 ease-in-out rounded-2xl overflow-hidden shadow-lg group/slider bg-black/5">
+                            <div id="slider-track" class="w-full flex transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] h-full">
+                                ${images.map((img, i) => `
+                                    <div class="w-full h-full shrink-0 relative flex items-center justify-center bg-black/5">
+                                        <img src="${escapeHtml(img)}" class="slider-img w-full h-auto block object-contain" data-index="${i}">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <!-- Navigation Arrows -->
+                            <button id="slider-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary-blue w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover/slider:opacity-100 transition-all duration-300 z-10 cursor-pointer">
+                                <span class="material-symbols-outlined text-2xl">chevron_left</span>
+                            </button>
+                            <button id="slider-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary-blue w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover/slider:opacity-100 transition-all duration-300 z-10 cursor-pointer">
+                                <span class="material-symbols-outlined text-2xl">chevron_right</span>
+                            </button>
+                            
+                            <!-- Indicators -->
+                            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm">
+                                ${images.map((_, i) => `
+                                    <button class="slider-dot w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'}" data-index="${i}"></button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <a href="../achievements/index.html" class="inline-flex items-center text-primary-blue hover:text-blue-700 font-button-text font-bold mb-8 transition-colors">
+                    <span class="material-symbols-outlined mr-2 text-sm">arrow_back</span> Back to Achievements
+                </a>
+                
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
+                    <!-- Main Hero Image -->
+                    ${blog.image_url ? `
+                        <div class="w-full h-64 md:h-96 relative">
+                            <img src="${escapeHtml(blog.image_url)}" class="absolute inset-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            ${blog.is_featured ? `<div class="absolute top-6 left-6 bg-accent-yellow text-white font-bold px-4 py-1 rounded-full shadow-lg text-sm flex items-center gap-2"><span class="material-symbols-outlined text-sm">star</span> Featured</div>` : ''}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="p-8 md:p-16">
+                        <div class="flex items-center gap-2 text-primary-blue font-bold tracking-wider uppercase text-sm mb-6">
+                            <span class="material-symbols-outlined text-base">calendar_today</span>
+                            ${date}
+                        </div>
+                        
+                        <h1 class="font-headline-xl text-4xl md:text-5xl text-text-dark mb-10 leading-tight">
+                            ${escapeHtml(blog.title)}
+                        </h1>
+                        
+                        <div class="prose prose-lg max-w-none text-text-dark opacity-80 font-body-lg leading-loose">
+                            ${formattedContent}
+                        </div>
+                        
+                        ${galleryHtml}
+                    </div>
+                </div>
+            `;
+            document.title = `${blog.title} - Robotics Education Academy`;
+            
+            // Initialize slider logic if it exists
+            if (images.length > 1) {
+                let currentSlide = 0;
+                let resizeObserver = null;
+                const track = document.getElementById('slider-track');
+                const prevBtn = document.getElementById('slider-prev');
+                const nextBtn = document.getElementById('slider-next');
+                const dots = document.querySelectorAll('.slider-dot');
+                const viewport = document.getElementById('slider-viewport');
+                
+                const updateSlider = () => {
+                    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    dots.forEach((dot, i) => {
+                        dot.className = `slider-dot w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'}`;
+                    });
+                    
+                    // Clean up previous observer if it exists
+                    if (resizeObserver) {
+                        resizeObserver.disconnect();
+                    }
+                    
+                    // Dynamically adjust viewport height to fit the active image's height
+                    const activeImg = track.querySelector(`.slider-img[data-index="${currentSlide}"]`);
+                    if (activeImg && viewport) {
+                        resizeObserver = new ResizeObserver(() => {
+                            viewport.style.height = `${activeImg.clientHeight}px`;
+                        });
+                        resizeObserver.observe(activeImg);
+                    }
+                };
+                
+                // Initialize height and dots state
+                updateSlider();
+                
+                prevBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + images.length) % images.length;
+                    updateSlider();
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % images.length;
+                    updateSlider();
+                });
+                
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        currentSlide = i;
+                        updateSlider();
+                    });
+                });
+            }
+            
+        } catch (error) {
+            container.innerHTML = `<div class="text-center py-20"><h2 class="text-3xl text-primary-blue font-headline-lg">Failed to load blog</h2><a href="../achievements/index.html" class="mt-4 text-primary-blue underline">Go back</a></div>`;
+        }
+    }
+
+    loadBlog();
+</script>
+</body>
+</html>
