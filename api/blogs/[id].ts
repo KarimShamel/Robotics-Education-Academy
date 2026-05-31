@@ -33,6 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             if (result.rowCount === 0) {
                 return res.status(404).json({ error: "Blog not found" });
             }
+            res.setHeader('Cache-Control', 'public, max-age=10, s-maxage=60, stale-while-revalidate=600');
             return res.status(200).json(result.rows[0]);
         }
 

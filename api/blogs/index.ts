@@ -57,6 +57,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 const countResult = await pool.query(totalCountQuery, totalCountParams);
                 const total = parseInt(countResult.rows[0].count) || 0;
 
+                res.setHeader('Cache-Control', 'public, max-age=10, s-maxage=30, stale-while-revalidate=300');
                 return res.status(200).json({
                     data,
                     meta: { 

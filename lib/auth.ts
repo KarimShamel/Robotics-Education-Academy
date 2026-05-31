@@ -9,7 +9,10 @@ export const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false
-    }
+    },
+    max: 2, // Limit each serverless function container to 2 connections max
+    idleTimeoutMillis: 15000, // Close idle connections after 15 seconds to free up Neon pools
+    connectionTimeoutMillis: 5000 // Error out quickly instead of hanging if Neon is waking up
 });
 
 export const auth = betterAuth({

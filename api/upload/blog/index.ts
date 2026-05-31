@@ -40,23 +40,24 @@ export default async function handler(req: any, res: any) {
             return res.status(400).json({ error: "Only JPEG, PNG, and WebP images are allowed" });
         }
 
-        // Compress image using sharp - allow larger dimensions for blogs
+        // Compress image using sharp - convert to WebP format for optimal size
         const buffer = await fs.promises.readFile(file.filepath);
         const compressedBuffer = await sharp(buffer)
             .resize(1920, 1080, {
                 fit: 'inside',
                 withoutEnlargement: true
             })
-            .jpeg({ quality: 85 })
+            .webp({ quality: 80 })
             .toBuffer();
 
         // Upload to Vercel Blob
-        const safeName = (file.originalFilename || 'upload.jpg').replace(/[^a-zA-Z0-9._-]/g, '_');
+        const baseName = (file.originalFilename || 'upload.webp').replace(/\.[^/.]+$/, "");
+        const safeName = baseName.replace(/[^a-zA-Z0-9._-]/g, '_') + '.webp';
         const blobName = `blogs/${session.user.id}/${Date.now()}-${safeName}`;
 
         const blob = await put(blobName, compressedBuffer, {
             access: 'public',
-            contentType: 'image/jpeg',
+            contentType: 'image/webp',
             token: process.env.BLOB_READ_WRITE_TOKEN
         });
 

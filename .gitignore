@@ -1,6 +1,11 @@
-
 .env
 node_modules/
+
+# Build & Vercel
+.vercel/
+.next/
+build/
+dist/
 
 # Playwright
 /test-results/
@@ -8,3 +13,12 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

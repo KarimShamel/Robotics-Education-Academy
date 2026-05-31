@@ -1,4 +1,4 @@
-import { pool } from './lib/auth';
+import { pool } from '../lib/auth.js';
 
 async function migrate() {
     console.log("Starting migration...");

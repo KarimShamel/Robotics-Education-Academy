@@ -1,4 +1,4 @@
-import { pool } from './lib/auth';
+import { pool } from '../lib/auth';
 
 async function up() {
     try {

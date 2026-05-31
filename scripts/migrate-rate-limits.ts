@@ -1,4 +1,4 @@
-import { pool } from './lib/auth';
+import { pool } from '../lib/auth';
 
 async function migrateRateLimits() {
     console.log("Starting rate_limits table migration...");

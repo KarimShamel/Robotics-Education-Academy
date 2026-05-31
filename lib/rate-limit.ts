@@ -4,6 +4,10 @@ export const uploadRateLimit = {
     limit: async (userId: string) => {
         const timeAgo = new Date(Date.now() - 60 * 60 * 1000); // 1 hour ago
         try {
+            // Asynchronously prune stale rate limit logs to save storage space
+            pool.query('DELETE FROM rate_limits WHERE created_at < $1', [new Date(Date.now() - 24 * 60 * 60 * 1000)])
+                .catch(err => console.error("Prune rate limits error:", err));
+
             const result = await pool.query(
                 'SELECT COUNT(*) FROM rate_limits WHERE user_id = $1 AND action = $2 AND created_at > $3',
                 [userId, 'upload', timeAgo]
